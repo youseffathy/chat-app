@@ -38,10 +38,12 @@ socket.on("locationMessage", (location) => {
 });
 
 socket.on("roomData", ({ room, users }) => {
+  $sidebar.innerHTML = "";
   const html = Mustache.render(sidebarTemplate, {
     room,
     users,
   });
+
   $sidebar.insertAdjacentHTML("beforeend", html);
 });
 
